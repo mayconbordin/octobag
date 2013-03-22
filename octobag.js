@@ -224,6 +224,7 @@
     
     this.collections = function(cb) {
       _request("GET", repoPath + "/contents?ref=" + branch, null, function(err, items) {
+        if (err) cb(err);
         var colls = [];
         for (i in items) {
           if (items[i].type == "dir") {
